@@ -1,3 +1,4 @@
+// import React, { useState } from "react";
 import React, { useState, useEffect } from "react";
 import {
   PaperAirplaneIcon,
@@ -23,6 +24,26 @@ function Navbar() {
       document.documentElement.classList.remove('dark');
     }
   }, [darkMode]);
+
+  const [message, setMessage] = useState("");
+  const [response, setResponse] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
+      const data = await res.text();
+      setResponse(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
@@ -56,20 +77,18 @@ function Navbar() {
               <div className="hidden sm:flex items-center gap-10">
                 <div className="hidden lg:flex items-center gap-2">
                   <MoonIcon
-                    className={`h-6 w-6 cursor-pointer ${
-                      darkMode ? "text-yellow-500" : "text-gray-700"
-                    }`}
+                    className={`h-6 w-6 cursor-pointer ${darkMode ? "text-yellow-500" : "text-gray-700"
+                      }`}
                     onClick={handleThemeToggle}
                   />
                   <SunIcon
-                    className={`h-6 w-6 cursor-pointer ${
-                      darkMode ? "text-gray-700" : "text-yellow-500"
-                    }`}
+                    className={`h-6 w-6 cursor-pointer ${darkMode ? "text-gray-700" : "text-yellow-500"
+                      }`}
                     onClick={handleThemeToggle}
                   />
                 </div>
                 <div>
-                  <button className="rounded-full border-solid border-2 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100">
+                  <button className="button">
                     Free Trial
                   </button>
                 </div>
@@ -85,9 +104,8 @@ function Navbar() {
         </div>
         {/* mobile navigation */}
         <div
-          className={`fixed z-40 w-full bg-gray-100 dark:bg-gray-700 overflow-hidden flex flex-col lg:hidden gap-12 origin-top duration-700 ${
-            !toggleMenu ? "h-0" : "h-full"
-          }`}
+          className={`fixed z-40 w-full bg-gray-100 dark:bg-gray-700 overflow-hidden flex flex-col lg:hidden gap-12 origin-top duration-700 ${!toggleMenu ? "h-0" : "h-full"
+            }`}
         >
           <div className="px-8">
             <div className="flex flex-col gap-8 font-bold tracking-wider">
@@ -101,11 +119,30 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      {/* Page content */}
       <div className="p-8">
-        {/* Add your page content here */}
         <h1 className="text-4xl font-bold">Welcome to Moniker-Maven</h1>
         <p>This is a sample page content.</p>
+        <form onSubmit={handleSubmit}>
+          <div className="p-4">
+            <label htmlFor="message">Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              className="pd-4"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+          </div>
+          <button className="button block" type="submit">Submit</button>
+        </form>
+        {response && (
+          <div className="mt-4 p-4 bg-gray-200 dark:bg-gray-700">
+            <h2 className="text-2xl font-bold">Response:</h2>
+            <pre>{response}</pre>
+          </div>
+        )}
       </div>
     </div>
   );

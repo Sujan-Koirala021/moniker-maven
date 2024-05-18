@@ -17,3 +17,7 @@ a:hover {
   @apply transition duration-200;
   @apply text-gray-700
 }
+
+.button{
+  @apply rounded-full border-solid border-2 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100
+}

@@ -1,10 +1,12 @@
 const express = require('express');
 const { spawn } = require('child_process');
+const cors = require('cors');
 const app = express();
 
+app.use(cors()); // Enable CORS
 app.use(express.json());
 
-app.post('/query', (req, res) => {
+app.post('/api/query', (req, res) => {
     const { query, model_name } = req.body;
     const pythonProcess = spawn('python', ['../model/model.py', query || 'Cool names']);
 
@@ -28,8 +30,8 @@ app.post('/query', (req, res) => {
         }
         try {
             const result = JSON.parse(data);
-            console.log("HI there:")
-            console.log(result)
+            console.log("HI there:");
+            console.log(result);
             res.json(result);
         } catch (error) {
             console.error('Error parsing JSON response from Python script', error);

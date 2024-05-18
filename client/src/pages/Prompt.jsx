@@ -7,14 +7,14 @@ export default function Prompt() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/submit", {
+      const res = await fetch("http://localhost:3001/api/query", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ query: message, model_name: "phi-3-gguf" })
       });
-      const data = await res.text();
+      const data = await res.json();
       setResponse(data);
     } catch (error) {
       console.error("Error:", error);
@@ -43,7 +43,7 @@ export default function Prompt() {
       {response && (
         <div className="mt-4 p-4 bg-gray-200 dark:bg-gray-700">
           <h2 className="text-2xl font-bold">Response:</h2>
-          <pre>{response}</pre>
+          <pre>{JSON.stringify(response, null, 2)}</pre>
         </div>
       )}
     </div>

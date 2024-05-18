@@ -42,7 +42,7 @@ function Navbar() {
             </div>
           </div>
           <div className="flex items-center">
-            <div className="flex items-center hidden sm:flex space-x-4">
+            <div className="items-center hidden sm:flex space-x-4">
               <MoonIcon
                 className={`h-6 w-6 cursor-pointer ${darkMode ? "text-yellow-500" : "text-gray-700"}`}
                 onClick={handleThemeToggle}

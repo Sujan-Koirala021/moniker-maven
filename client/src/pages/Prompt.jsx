@@ -22,7 +22,7 @@ export default function Prompt() {
   };
 
   return (
-    <div className="p-8 bg-white dark:bg-red-800">
+    <div className="p-8 bg-white dark:bg-darkTheme dark:text-white">
       <h1 className="text-4xl font-bold">Welcome to Moniker-Maven</h1>
       <p>This is a sample page content.</p>
       <form onSubmit={handleSubmit}>
@@ -33,7 +33,7 @@ export default function Prompt() {
             name="message"
             rows="4"
             required
-            className="p-4 border border-gray-300 dark:border-gray-700"
+            className="p-4 border border-gray-300 dark:border-gray-700 dark:text-black"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></textarea>
@@ -41,7 +41,7 @@ export default function Prompt() {
         <button className="button block" type="submit">Submit</button>
       </form>
       {response && (
-        <div className="mt-4 p-4 bg-gray-200 dark:bg-gray-700">
+        <div className="mt-4 p-4 ">
           <h2 className="text-2xl font-bold">Response:</h2>
           <pre>{JSON.stringify(response, null, 2)}</pre>
         </div>

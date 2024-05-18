@@ -11,7 +11,7 @@ body,
   height: 100%;
   width: 100%;
   font-family: 'Poppins';
-  @apply  text-gray-500
+  @apply  text-gray-700
 }
 a:hover {
   @apply transition duration-200;
@@ -19,5 +19,5 @@ a:hover {
 }
 
 .button{
-  @apply rounded-full border-solid border-2 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100
+  @apply rounded-full border-solid border-2 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-orange-400
 }

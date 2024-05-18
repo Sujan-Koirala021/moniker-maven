@@ -23,7 +23,7 @@ function Navbar() {
   }, [darkMode]);
 
   return (
-    <nav className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
+    <nav className="bg-white dark:bg-darkTheme text-gray-800 dark:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -36,8 +36,7 @@ function Navbar() {
             </a>
             <div className="hidden lg:flex ml-10 space-x-4">
               <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">Home</a>
-              <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">Benefits</a>
-              <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">Our Classes</a>
+              <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">About</a>
               <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">Contact Us</a>
             </div>
           </div>
@@ -48,7 +47,7 @@ function Navbar() {
                 onClick={handleThemeToggle}
               />
               <SunIcon
-                className={`h-6 w-6 cursor-pointer ${darkMode ? "text-gray-700" : "text-yellow-500"}`}
+                className={`h-6 w-6 cursor-pointer ${darkMode ? "text-white" : "text-yellow-500"}`}
                 onClick={handleThemeToggle}
               />
               <button className="button">Free Trial</button>

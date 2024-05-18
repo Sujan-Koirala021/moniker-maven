@@ -11,7 +11,7 @@ body,
   height: 100%;
   width: 100%;
   font-family: 'Poppins';
-  @apply bg-gray-100 text-gray-500
+  @apply  text-gray-500
 }
 a:hover {
   @apply transition duration-200;

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
+
 import {
   PaperAirplaneIcon,
   MoonIcon,
@@ -27,17 +29,17 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="flex gap-1 font-bold text-gray-700 dark:text-gray-100 items-center"
             >
               <PaperAirplaneIcon className="h-6 w-6 text-primary" />
               <span>Moniker-Maven</span>
-            </a>
+            </Link>
             <div className="hidden lg:flex ml-10 space-x-4">
-              <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">Home</a>
-              <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">About</a>
-              <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300">Contact Us</a>
+              <Link to="/home" className="hover:text-gray-700 dark:hover:text-gray-300">Home</Link>
+              <Link to="/about" className="hover:text-gray-700 dark:hover:text-gray-300">About</Link>
+              <Link to="/contact-us" className="hover:text-gray-700 dark:hover:text-gray-300">Contact Us</Link>
             </div>
           </div>
           <div className="flex items-center">
@@ -64,10 +66,9 @@ function Navbar() {
         className={`lg:hidden ${toggleMenu ? 'block' : 'hidden'}`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">Home</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">Benefits</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">Our Classes</a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">Contact Us</a>
+          <Link to="/home" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">Home</Link>
+          <Link to="/about" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">About</Link>
+          <Link to="/contact-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300">Contact Us</Link>
         </div>
       </div>
     </nav>

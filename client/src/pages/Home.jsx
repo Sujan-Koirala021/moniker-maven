@@ -6,11 +6,7 @@ import StepWizard from './StepWizard'
 export default function Home() {
   return (
     <>
-    <Navbar/>
-    {/* <Prompt/> */}
     <NameGenerator/>
-    {/* <StepWizard/> */}
-    <></>
     </>
   )
 }

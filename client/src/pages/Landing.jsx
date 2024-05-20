@@ -10,8 +10,8 @@ const LandingPage = () => {
     return (
         <>
                     <Navbar />
-                    {/* <Hero/> */}
-                    <ContactUs/>
+                    <Hero/>
+                    {/* <ContactUs/> */}
                     {/* <AboutUs/> */}
             <Footer/>
         </>

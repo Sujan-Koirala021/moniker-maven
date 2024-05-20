@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../components/spinner.css'; // Assuming you have a CSS file for the spinner styles
 import renderNames from '../components/RenderNames'; // Adjust the path according to your file structure
-
+import { useNavigate } from 'react-router-dom';
 const NameGenerator = () => {
   const [formData, setFormData] = useState({
     nameType: 'baby',
@@ -13,7 +13,7 @@ const NameGenerator = () => {
     initialLetter: '',
     easeOfPronunciation: 'easy',
   });
-
+  const navigate = useNavigate()
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +26,7 @@ const NameGenerator = () => {
     e.preventDefault();
     setLoading(true);
     setResponse("");
+    
 
     // Construct the query string from form data
     let query = `Generate a list of ${formData.nameType} names`;
@@ -60,6 +61,10 @@ const NameGenerator = () => {
       const data = await res.json();
       console.log('API Response:', data);
       setResponse(data.llm_response);
+      // navigate('/name-cards'); // Redirect to name-cards page
+      navigate(`/name-cards?response=${encodeURIComponent(JSON.stringify(data.llm_response))}`);
+
+
     } catch (error) {
       console.error("Error:", error);
     } finally {
@@ -68,7 +73,7 @@ const NameGenerator = () => {
   };
   
   return (
-    <div className="relative">
+    <div className="relative dark:bg-darkTheme">
       {loading && (
         <div className="spinner-overlay">
           <div className="spinner"></div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import heroImage from '../assets/hero-image.jpg'; // Import your hero image
-
+import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <div
@@ -12,7 +12,9 @@ const Hero = () => {
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Moniker Maven</h1>
           <p className="text-lg md:text-xl max-w-md">Discover the perfect names for your bundle of joy or furry friend with ease and delight.</p>
+          <Link to='/home'>
           <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-4 mt-8 rounded-sm uppercase">Get Started >> </button>
+          </Link>
         </div>
       </div>
     </div>

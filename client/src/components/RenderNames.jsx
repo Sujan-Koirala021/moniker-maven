@@ -1,11 +1,17 @@
 import React from 'react';
-import NameCard from './Card'; // Adjust the path according to your file structure
+import NameCard from './Card'; 
 
 const renderNames = (response) => {
   if (!response) return null;
 
+  // Find the last comma index
+  const lastCommaIndex = response.lastIndexOf(',');
+
+  // Take only the portion before the last comma
+  const trimmedResponse = lastCommaIndex !== -1 ? response.substring(0, lastCommaIndex) : response;
+
   // Trim any trailing comma and split the response
-  const rawNames = response.replace(/,\s*$/, '').split(',');
+  const rawNames = trimmedResponse.replace(/,\s*$/, '').split(',');
 
   // Create a Set to store unique names
   const nameSet = new Set();

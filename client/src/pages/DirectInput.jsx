@@ -6,24 +6,71 @@ const NameGenerator = () => {
     gender: 'unisex',
     petType: '',
     origin: '',
-    meaning: '',
     length: 'medium',
     popularity: 'unique',
     initialLetter: '',
-    familyNames: '',
-    preferences: '',
     easeOfPronunciation: 'easy',
   });
+
+  const [response, setResponse] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Call your LLM model here with formData
-    console.log('Form Data Submitted:', formData);
+    
+    // Construct the query string from form data
+    let query = `Generate a list of ${formData.nameType} names`;
+    
+    if (formData.nameType === 'pet' && formData.petType) {
+      query += `for a ${formData.petType} `;
+    }
+    
+    query += `that are ${formData.gender}, ${formData.length} in length, and ${formData.popularity}.`;
+    
+    if (formData.origin) {
+      query += ` The names should have ${formData.origin} origin.`;
+    }
+    
+    // if (formData.meaning) {
+    //   query += ` They should mean "${formData.meaning}".`;
+    // }
+    
+    if (formData.initialLetter) {
+      query += ` The names should start with "${formData.initialLetter}".`;
+    }
+    
+    // if (formData.familyNames) {
+    //   query += ` Similar names in the family include ${formData.familyNames}.`;
+    // }
+    
+    // if (formData.preferences) {
+    //   query += ` Preferences and dislikes include: ${formData.preferences}.`;
+    // }
+    
+    query += ` The names should be ${formData.easeOfPronunciation} to pronounce.`;
+    
+    // Add a request for unique, non-repeating names
+    query += ` Return the name in the form of word with meaning in bracket and then comma. format: word1(meaning1), word2(meaning2)`;
+    console.log('Generated Query:', query);
+
+    try {
+      const res = await fetch("http://localhost:3001/api/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ query, model_name: "phi-3-gguf" })
+      });
+      const data = await res.json();
+      console.log('API Response:', data);  // Log the response to the console
+      setResponse(data.llm_response);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -58,11 +105,11 @@ const NameGenerator = () => {
           <label className="block text-sm font-medium text-gray-700">Cultural Origin</label>
           <input type="text" name="origin" value={formData.origin} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., English, French" />
         </div>
-        
+        {/* 
         <div>
           <label className="block text-sm font-medium text-gray-700">Desired Meaning</label>
           <input type="text" name="meaning" value={formData.meaning} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., Brave, Joyful" />
-        </div>
+        </div> */}
         
         <div>
           <label className="block text-sm font-medium text-gray-700">Name Length</label>
@@ -86,16 +133,17 @@ const NameGenerator = () => {
           <label className="block text-sm font-medium text-gray-700">Initial Letter</label>
           <input type="text" name="initialLetter" value={formData.initialLetter} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., A, B" />
         </div>
-        
+{/*         
         <div>
           <label className="block text-sm font-medium text-gray-700">Family Names or Similar Names</label>
           <input type="text" name="familyNames" value={formData.familyNames} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., John, Jane" />
         </div>
-        
-        <div>
+         */}
+
+        {/* <div>
           <label className="block text-sm font-medium text-gray-700">Personal Preferences or Dislikes</label>
           <input type="text" name="preferences" value={formData.preferences} onChange={handleChange} className="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., No names starting with X" />
-        </div>
+        </div> */}
         
         <div>
           <label className="block text-sm font-medium text-gray-700">Ease of Pronunciation</label>
@@ -108,6 +156,13 @@ const NameGenerator = () => {
         
         <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md">Generate Name</button>
       </form>
+      
+      {response && (
+        <div className="mt-4 p-4 bg-gray-100 rounded-md">
+          <h2 className="text-xl font-bold">Generated Names:</h2>
+          <pre>{JSON.stringify(response, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 };

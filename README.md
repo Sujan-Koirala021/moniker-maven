@@ -2,11 +2,11 @@
 
 ---
 
-# <p align="center">PDF<span style="color: #F59E0B;">Moniker Maven</span> : Discover the perfect names</p>
+# <p align="center">Moniker Maven</span> : Discover the perfect names</p>
 <p align="center">
     <p align="center">
         <a href="https://github.com/Sujan-Koirala021/moniker-maven" target="blank">
-            <img src="https://img.shields.io/github/watchers/Subash-Lamichhane/PDFAssistant?style=for-the-badge&logo=appveyor" alt="Watchers"/>
+            <img src="https://img.shields.io/github/watchers/Sujan-Koirala021/moniker-maven?style=for-the-badge&logo=appveyor" alt="Watchers"/>
         </a>
         <a href="https://github.com/Sujan-Koirala021/moniker-maven" target="blank">
             <img src="https://img.shields.io/github/forks/Sujan-Koirala021/moniker-maven?style=for-the-badge&logo=appveyor" alt="Forks"/>
@@ -125,6 +125,11 @@ Open your browser and navigate to `http://localhost:3000`.
 
 ## Screenshots
 
+![landing](https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/dad74a1d-53e2-40d7-802b-bc545139b9fa)
+![about](https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/28317848-27ed-494e-9bf9-42e59c54fb67)
+![contact](https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/f103f3c0-f3e7-4489-828e-8492bdf8019b)
+![prompt](https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/7cbb5f4a-6d20-4b02-b50c-2529872b6cb7)
+![result](https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/f2a36447-c814-4245-9b6f-abc76cdbd418)
 
 
 ## Contributing

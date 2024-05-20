@@ -77,7 +77,7 @@ env\Scripts\activate # to activate
 #### Install dependencies:
 ```bash
 pip install -r requirements.txt
-
+```
 
 
 ### Setup Frontend 
@@ -102,9 +102,6 @@ npm start
 #### Navigate to the server directory:
 ```bash
 cd server
-```
-
-
 ```
 
 

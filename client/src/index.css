@@ -19,5 +19,5 @@ a:hover {
 }
 
 .button{
-  @apply rounded-full border-solid border-2 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-orange-400
+  @apply rounded-full border-solid border-2 m-6 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100 dark:hover:bg-orange-400
 }

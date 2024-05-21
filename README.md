@@ -44,10 +44,11 @@ Moniker Maven is a web application that provides a comprehensive suite of tools 
 
 ## Demo
 
-<video src="
-https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/224d6c15-7fa9-4bda-b7e5-164172ab4dd3
+<video width="600" controls>
+  <source src="https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/224d6c15-7fa9-4bda-b7e5-164172ab4dd3" type="video/mp4">
+  <!-- Your browser does not support the video tag. -->
+</video>
 
-"></video>
 
 ## Dependencies
 - React

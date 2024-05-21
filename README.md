@@ -43,7 +43,8 @@ Moniker Maven is a web application that provides a comprehensive suite of tools 
 - **Name Exploration**: Explore a vast database of names categorized by origin, gender, and more.
 
 ## Demo
-![clip-ezgif com-video-to-gif-converter](https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/9bc1c94e-4d0e-4e9e-9504-28658498ec2b)
+<video src="https://github.com/Sujan-Koirala021/moniker-maven/assets/84112374/83191134-73b8-4c3d-b9d8-562270ba01b9"></video>
+
 
 
 

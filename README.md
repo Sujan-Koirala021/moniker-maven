@@ -67,21 +67,6 @@ git clone https://github.com/Sujan-Koirala021/moniker-maven.git
 cd moniker-maven
 ```
 
-#### Set up a virtual environment :
-```bash
-python -m venv env
-
-source env/bin/activate 
-
-# For Windows use:
-env\Scripts\activate # to activate
-```
-
-#### Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
 
 ### Setup Frontend 
 
@@ -99,6 +84,23 @@ npm install
 ```bash
 npm start
 ```
+
+#### Set up a virtual environment :
+```bash
+python -m venv env
+
+source env/bin/activate 
+
+# For Windows use:
+env\Scripts\activate # to activate
+```
+
+#### Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+
 
 ### Setup Backend 
 

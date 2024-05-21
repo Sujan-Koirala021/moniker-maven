@@ -10,7 +10,6 @@ import Footer from './components/Footer'
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Hero from "./components/Hero";
-import NameGenerator from "./pages/NameGenerator";
 import NameCardPage from "./pages/NameCardPage";
 
 const Layout = () => {
@@ -49,14 +48,7 @@ const router = createBrowserRouter([
       }
     ]
   },
-  // {
-  //   path: "/register",
-  //   element: <Register />,
-  // },
-  // {
-  //   path: "/login",
-  //   element: <Login />,
-  // },
+
 ]);
 
 

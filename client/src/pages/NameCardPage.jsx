@@ -1,6 +1,6 @@
 import React from 'react';
 import renderNames from '../components/RenderNames'; 
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 
 import { useLocation } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../components/spinner.css'; // Assuming you have a CSS file for the spinner styles
-import renderNames from '../components/RenderNames'; // Adjust the path according to your file structure
+import '../components/spinner.css'; 
+import renderNames from '../components/RenderNames'; 
 import { useNavigate } from 'react-router-dom';
 
 const NameGenerator = () => {
